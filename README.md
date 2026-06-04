@@ -87,6 +87,27 @@ it up when you're ready.
 
 ---
 
+## 📧 Email capture (the main goal of the site)
+The #1 job of this page is to turn visitors into email subscribers — the email
+list is the foundation everything else (digital products, 1:1 coaching) gets
+built on. The hook is a free lead magnet: **The Balanced Plate Cheat Sheet**.
+
+- The opt-in forms (hero, the "Free download" band, and the Connect section) all
+  capture **first name + email**, then reveal the cheat-sheet download.
+- The cheat sheet lives at `guides/cheat-sheet.html`; the delivered PDF and the
+  on-site preview image are generated from it with **`npm run cheatsheet`**
+  (writes `guides/balanced-plate-cheat-sheet.pdf` + `cheat-sheet-preview.png`).
+
+### ⚠️ To actually collect the emails, connect an email tool
+Right now the forms deliver the download but **don't store the email anywhere**.
+To make it real, connect **Kit (ConvertKit)** — free, built for creators, and it
+can auto-deliver the cheat sheet + send newsletters:
+1. Create a Kit account (Yanelly's own — not a shared one).
+2. Make a form in Kit; set its "incentive email" to deliver the cheat-sheet PDF.
+3. In `script.js`, at the `TODO`, POST the name + email to the Kit form — or
+   replace each `<form class="optin">` with Kit's embed snippet.
+Ask Claude: _"wire the opt-in forms up to my Kit account"_ and it'll help.
+
 ## 💰 Ways to monetize later (roadmap)
 The site is free now; here's the typical path creators take:
 
