@@ -83,8 +83,23 @@
             no fad diets.
           </p>
           <div class="hero__actions" data-reveal>
-            <a href="#guides" class="btn">Get the free guides</a>
-            <a href="#basics" class="arrow-link">Start with the basics <span>&rarr;</span></a>
+            <!-- Primary call-to-action: capture name + email in exchange for
+                 the free cheat sheet. (See script.js for where to wire this to
+                 an email tool like Kit/ConvertKit later.) -->
+            <form class="optin" novalidate>
+              <p class="optin__hook">Get the free <b>Balanced Plate Cheat Sheet</b> &mdash; build any meal in 30 seconds.</p>
+              <div class="optin__fields">
+                <input class="optin__name" type="text" name="first_name" placeholder="First name" autocomplete="given-name" required />
+                <input class="optin__email" type="email" name="email" placeholder="you@email.com" autocomplete="email" required />
+                <button type="submit" class="btn">Send it to me</button>
+              </div>
+              <p class="optin__note">Free PDF &middot; plus simple nutrition tips &middot; no spam, unsubscribe anytime.</p>
+              <div class="optin__success" hidden>
+                <p class="optin__success-msg">You're in! 🎉 Grab your cheat sheet below — and keep an eye on your inbox.</p>
+                <a class="btn" href="guides/balanced-plate-cheat-sheet.pdf" target="_blank" rel="noopener" download>Download the cheat sheet ↓</a>
+              </div>
+            </form>
+            <a href="#basics" class="arrow-link">Or explore the basics <span>&rarr;</span></a>
           </div>
         </div>
 
@@ -293,6 +308,40 @@
     </section>
 
     <!-- ======================================================================
+         LEAD MAGNET  (the primary conversion block — email capture)
+    ======================================================================= -->
+    <section class="leadmag" id="get">
+      <div class="wrap leadmag__inner">
+        <div class="leadmag__media" data-reveal>
+          <img src="guides/cheat-sheet-preview.png" alt="Preview of the free Balanced Plate Cheat Sheet" />
+        </div>
+        <div class="leadmag__text" data-reveal>
+          <span class="sec-label">Free download</span>
+          <h2>The Balanced Plate Cheat Sheet</h2>
+          <p>The exact, no-tracking method I use to build balanced meals — on one
+            printable page you can stick on your fridge.</p>
+          <ul class="leadmag__points">
+            <li>The 30-second plate method</li>
+            <li>Protein, carb, fat &amp; produce quick-picks</li>
+            <li>Printable one-pager — yours free</li>
+          </ul>
+          <form class="optin optin--stacked" novalidate>
+            <div class="optin__fields">
+              <input class="optin__name" type="text" name="first_name" placeholder="First name" autocomplete="given-name" required />
+              <input class="optin__email" type="email" name="email" placeholder="you@email.com" autocomplete="email" required />
+              <button type="submit" class="btn">Send me the cheat sheet</button>
+            </div>
+            <p class="optin__note">Free PDF &middot; plus simple nutrition tips &middot; no spam, unsubscribe anytime.</p>
+            <div class="optin__success" hidden>
+              <p class="optin__success-msg">You're in! 🎉 Grab your cheat sheet below — and watch your inbox.</p>
+              <a class="btn" href="guides/balanced-plate-cheat-sheet.pdf" target="_blank" rel="noopener" download>Download the cheat sheet ↓</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
          RECIPES
     ======================================================================= -->
     <section class="section" id="recipes">
@@ -351,7 +400,7 @@
               <h3>The Balanced Plate Cheat Sheet</h3>
               <p>A one-page printable to build any meal in seconds.</p>
             </div>
-            <a href="#" class="guide__cta">Coming soon</a>
+            <a href="#get" class="guide__cta guide__cta--live">Get it free →</a>
           </li>
           <li class="guide">
             <span class="guide__no">B</span>
@@ -420,6 +469,12 @@
             <p>Yep. The fundamentals will always be free. There may be optional
             premium resources down the road, but not the basics.</p>
           </details>
+          <details class="faq__item">
+            <summary>What happens when I enter my email?</summary>
+            <p>You'll get the cheat sheet right away, plus the occasional email
+            with simple nutrition tips, meals, and new free resources. No spam,
+            and you can unsubscribe in one click anytime.</p>
+          </details>
         </div>
       </div>
     </section>
@@ -443,14 +498,24 @@
           </ul>
         </div>
 
-        <form class="signup" id="signup-form" data-reveal>
-          <label for="email" class="signup__label">Join the email list</label>
-          <div class="signup__row">
-            <input type="email" id="email" name="email" placeholder="you@email.com" required />
-            <button type="submit" class="btn">Sign up</button>
-          </div>
-          <p class="signup__note" id="signup-note" hidden></p>
-        </form>
+        <div class="connect__optin" data-reveal>
+          <form class="optin optin--stacked" novalidate>
+            <p class="optin__hook">Get the free cheat sheet + simple nutrition tips:</p>
+            <div class="optin__fields">
+              <input class="optin__name" type="text" name="first_name" placeholder="First name" autocomplete="given-name" required />
+              <input class="optin__email" type="email" name="email" placeholder="you@email.com" autocomplete="email" required />
+              <button type="submit" class="btn">Subscribe</button>
+            </div>
+            <p class="optin__note">No spam, unsubscribe anytime.</p>
+            <div class="optin__success" hidden>
+              <p class="optin__success-msg">You're in! 🎉 Grab your cheat sheet below.</p>
+              <a class="btn" href="guides/balanced-plate-cheat-sheet.pdf" target="_blank" rel="noopener" download>Download the cheat sheet ↓</a>
+            </div>
+          </form>
+
+          <!-- Soft secondary path for high-intent visitors (future services) -->
+          <p class="work-note">Want 1:1 support down the road? <a href="mailto:hello@yanellyfuels.com?subject=1:1%20coaching%20interest">Coaching is coming soon →</a></p>
+        </div>
       </div>
     </section>
   </main>

@@ -71,20 +71,34 @@ if (revealEls.length && "IntersectionObserver" in window && !reduceMotion) {
   showAll();
 }
 
-/* ---- 4. Email signup ----------------------------------------------------
-   For now this just shows a confirmation. To actually collect emails, connect
-   it to a free service (Kit/ConvertKit, Mailchimp, Beehiiv) by pasting their
-   embed snippet in place of the <form> in index.html.                         */
-const form = document.getElementById("signup-form");
-const note = document.getElementById("signup-note");
-if (form && note) {
+/* ---- 4. Email opt-in forms (the main call-to-action) --------------------
+   Every form with class "optin" captures a first name + email and then shows
+   the success state with the cheat-sheet download.
+
+   To actually COLLECT the emails, wire this up to an email tool (Kit/ConvertKit
+   recommended) where the "TODO" is marked below —
+   e.g. POST the name + email to her Kit form endpoint, or swap each <form> for
+   Kit's embed snippet. Right now it delivers the download but doesn't store
+   the address anywhere.                                                        */
+document.querySelectorAll("form.optin").forEach((form) => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    note.hidden = false;
-    note.textContent = "Thanks for signing up! 🥑 You'll hear from me soon.";
-    form.reset();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    // const data = { first_name: form.querySelector(".optin__name").value,
+    //                email: form.querySelector(".optin__email").value };
+    // TODO: send `data` to the email provider (Kit/ConvertKit) here.
+
+    const fields = form.querySelector(".optin__fields");
+    const note = form.querySelector(".optin__note");
+    const hook = form.querySelector(".optin__hook");
+    const success = form.querySelector(".optin__success");
+    if (fields) fields.hidden = true;
+    if (note) note.hidden = true;
+    if (hook) hook.hidden = true;
+    if (success) success.hidden = false;
   });
-}
+});
 
 /* ---- 5. Current year ----------------------------------------------------- */
 const yearEl = document.getElementById("year");
