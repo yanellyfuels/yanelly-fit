@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yanelly Fuels | HA Recovery, Nutrition, Fitness &amp; Body Image</title>
-  <meta name="description" content="Follow Yanelly, a Human Nutrition and Foods student, as she shares her personal journey with hypothalamic amenorrhea, food, strength training, body image, and learning to pursue fitness goals while prioritizing health." />
+  <meta name="description" content="Follow Yanelly, a Human Nutrition and Foods student, as she shares her personal journey with hypothalamic amenorrhea, underfueling, food, strength training, body image, and a free reflection guide for active women." />
   <meta property="og:title" content="Yanelly Fuels | HA Recovery, Nutrition, Fitness &amp; Body Image" />
-  <meta property="og:description" content="A personal journey through hypothalamic amenorrhea, food, strength training, body image, and learning to protect health while still loving fitness." />
+  <meta property="og:description" content="A personal journey through hypothalamic amenorrhea, underfueling, food, strength training, body image, and learning to protect health while still loving fitness." />
   <meta property="og:type" content="website" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥑</text></svg>" />
   <script>document.documentElement.className = "js";</script>
@@ -273,32 +273,27 @@
       </div>
     </section>
 
-    <section class="leadmag" id="guides" aria-labelledby="guide-title">
-      <div class="wrap leadmag__inner">
-        <div class="leadmag__media" data-reveal>
-          <img src="guides/cheat-sheet-preview.png" alt="Preview of the free Balanced Plate Guide" />
+    <section class="leadmag freebie" id="freebie" aria-labelledby="freebie-title">
+      <div class="wrap leadmag__inner freebie__inner">
+        <div class="freebie-card" data-reveal aria-label="Could You Be Underfueling reflection guide">
+          <span class="freebie-card__eyebrow">Free Reflection Guide</span>
+          <h2>Could You Be Underfueling?</h2>
+          <p>A Reflection Guide for Active Women</p>
         </div>
         <div class="leadmag__text" data-reveal>
-          <span class="sec-label">Free Food Resource</span>
-          <h2 id="guide-title">The Balanced Plate Guide</h2>
-          <p>A general food resource for building simple, satisfying meals with protein, carbs, fats, and produce. It is not an HA treatment guide or medical advice.</p>
+          <span class="sec-label">Free Educational Resource</span>
+          <h2 id="freebie-title">Wondering if you might be underfueling?</h2>
+          <p>Underfueling does not always look obvious. This free reflection guide was created for active women who want to better understand possible signs of low energy availability, reflect on their food and exercise habits, and feel more prepared to seek qualified support.</p>
+          <p class="freebie__subtitle">A gentle guide to recognizing possible signs of underfueling, reflecting on your relationship with food and exercise, and preparing questions to discuss with a qualified healthcare professional.</p>
           <ul class="leadmag__points">
-            <li>Protein, carb, fat, and produce quick picks</li>
-            <li>Meal ideas for busy days, training days, and real life</li>
-            <li>A supportive framework for more balanced meals</li>
+            <li>Changes in menstrual cycles</li>
+            <li>Energy, mood, sleep, and recovery</li>
+            <li>Constant food thoughts or increased food focus</li>
+            <li>Fear around eating more or exercising less</li>
+            <li>Training volume and rest</li>
+            <li>Possible next steps and questions for a healthcare professional</li>
           </ul>
-          <form class="optin optin--stacked" novalidate>
-            <div class="optin__fields">
-              <input class="optin__name" type="text" name="first_name" placeholder="First name" autocomplete="given-name" required />
-              <input class="optin__email" type="email" name="email" placeholder="you@email.com" autocomplete="email" required />
-              <button type="submit" class="btn">Send me the guide</button>
-            </div>
-            <p class="optin__note">Free PDF. General meal inspiration, not individualized nutrition care.</p>
-            <div class="optin__success" hidden>
-              <p class="optin__success-msg">You're in! Grab your guide below.</p>
-              <a class="btn" href="guides/balanced-plate-cheat-sheet.pdf" target="_blank" rel="noopener" download>Download the guide ↓</a>
-            </div>
-          </form>
+          <a href="#freebie-form" class="btn">Send Me the Free Guide</a>
         </div>
       </div>
     </section>
@@ -368,22 +363,26 @@
           </ul>
         </div>
         <div class="connect__optin" data-reveal>
-          <form class="optin optin--stacked" novalidate>
-            <p class="optin__hook">Get the free Balanced Plate Guide for simple, satisfying meal inspiration.</p>
+          <!-- Replace KIT_FORM_ACTION_PLACEHOLDER with the real Kit public form action URL or swap this form for Kit's embed. Do not add private Kit API keys here. Optional future PDF reference: HA_FREEBIE_URL in script.js. -->
+          <form class="optin optin--stacked" id="freebie-form" novalidate method="post" action="" data-kit-form-action="KIT_FORM_ACTION_PLACEHOLDER">
+            <p class="optin__hook">Get <b>Could You Be Underfueling?</b> sent to your inbox.</p>
+            <p class="freebie__subtitle">A reflection guide for active women navigating food, fitness, possible underfueling, and questions to bring to a qualified healthcare professional.</p>
             <div class="optin__fields">
-              <input class="optin__name" type="text" name="first_name" placeholder="First name" autocomplete="given-name" required />
-              <input class="optin__email" type="email" name="email" placeholder="you@email.com" autocomplete="email" required />
-              <button type="submit" class="btn">Get the guide</button>
+              <label class="sr-only" for="freebie-first-name">First name, optional</label>
+              <input class="optin__name" id="freebie-first-name" type="text" name="first_name" placeholder="First name, optional" autocomplete="given-name" />
+              <label class="sr-only" for="freebie-email">Email address</label>
+              <input class="optin__email" id="freebie-email" type="email" name="email" placeholder="you@email.com" autocomplete="email" required />
+              <button type="submit" class="btn">Send Me the Free Guide</button>
             </div>
-            <p class="optin__note">The form shows the download after signup. It does not currently store emails in a list.</p>
+            <p class="optin__note">This guide is delivered through email once Kit is connected. The website does not store subscriber emails.</p>
             <div class="optin__success" hidden>
-              <p class="optin__success-msg">You're in! Grab your guide below.</p>
-              <a class="btn" href="guides/balanced-plate-cheat-sheet.pdf" target="_blank" rel="noopener" download>Download the guide ↓</a>
+              <p class="optin__success-msg">Check your inbox! Your guide is on the way. Be sure to check your spam or promotions folder too. 🤍</p>
             </div>
           </form>
           <div class="disclaimer" role="note">
             <h3>Educational disclaimer</h3>
-            <p>I am a Human Nutrition and Foods student sharing my personal experience, general education, meal inspiration, and fitness journey. I am not yet a Registered Dietitian or medical provider, and this website does not provide medical diagnosis, treatment, or individualized nutrition advice. Missing or irregular menstrual cycles can have multiple causes and should be evaluated by a qualified healthcare professional.</p>
+            <p>This guide is for general education and personal reflection only. It is not a diagnostic tool, medical advice, or individualized nutrition treatment. Missing or irregular menstrual cycles can have multiple causes and should be evaluated by a qualified healthcare professional.</p>
+            <p>I am a Human Nutrition and Foods student sharing my personal experience, general education, meal inspiration, and fitness journey. I am not yet a Registered Dietitian or medical provider.</p>
           </div>
         </div>
       </div>
