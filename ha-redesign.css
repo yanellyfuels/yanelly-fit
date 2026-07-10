@@ -5,9 +5,22 @@
 .btn:focus-visible,
 .arrow-link:focus-visible,
 .connect__links a:focus-visible,
-.footer a:focus-visible {
+.footer a:focus-visible,
+.optin input:focus-visible {
   outline: 3px solid var(--gold);
   outline-offset: 4px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .hero__actions--buttons { align-items: center; }
@@ -169,6 +182,47 @@
 .entries--compact .entry:nth-child(3n) { border-right: none; }
 .entries--compact .entry:nth-last-child(-n+3) { border-bottom: none; }
 
+.freebie__inner {
+  grid-template-columns: 0.82fr 1.18fr;
+}
+.freebie-card {
+  border: 2px solid var(--ink);
+  border-radius: var(--r);
+  background:
+    linear-gradient(135deg, rgba(231, 182, 172, 0.55), rgba(215, 224, 197, 0.75)),
+    var(--card);
+  box-shadow: 14px 14px 0 var(--blush);
+  padding: 34px;
+  min-height: 360px;
+  display: grid;
+  align-content: center;
+  gap: 16px;
+}
+.freebie-card__eyebrow,
+.freebie__subtitle {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+}
+.freebie-card h2 {
+  font-size: clamp(2rem, 4vw, 3.1rem);
+}
+.freebie-card p {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  line-height: 1.3;
+  color: var(--green);
+}
+.freebie__subtitle {
+  display: block;
+  margin: 0 0 18px;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+.freebie .btn { margin-top: 6px; }
+
 .topic-grid {
   grid-template-columns: repeat(4, 1fr);
 }
@@ -190,6 +244,7 @@
 .disclaimer p {
   color: var(--ink-2);
   font-size: 0.95rem;
+  margin-bottom: 10px;
 }
 
 .footer__legal a {
@@ -207,7 +262,8 @@
   .topic-grid { grid-template-columns: repeat(2, 1fr); }
   .belief__inner,
   .food-intro,
-  .fitness-layout { grid-template-columns: 1fr; }
+  .fitness-layout,
+  .freebie__inner { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 900px) {
@@ -227,4 +283,5 @@
   .story-copy { padding-left: 20px; }
   .quote-card { padding: 26px; box-shadow: 8px 8px 0 var(--blush); }
   .connect__links a { font-size: 1.16rem; }
+  .freebie-card { min-height: 0; padding: 28px; box-shadow: 8px 8px 0 var(--blush); }
 }
