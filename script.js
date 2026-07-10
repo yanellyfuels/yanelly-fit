@@ -76,10 +76,10 @@ if (revealEls.length && "IntersectionObserver" in window && !reduceMotion) {
    form action URL, or replace the form markup with Kit's official embed code.
    Do not add private Kit API keys to frontend code.
 
-   Optional future file reference for your records only:
-   const HA_FREEBIE_URL = "";
-   The preferred delivery method is Kit email, not a public direct download.   */
+   HA_FREEBIE_URL is here as a future public file reference if needed, but the
+   preferred delivery method is Kit email, not a public direct download.        */
 const KIT_PLACEHOLDER = "KIT_FORM_ACTION_PLACEHOLDER";
+const HA_FREEBIE_URL = "";
 
 document.querySelectorAll("form.optin").forEach((form) => {
   form.addEventListener("submit", async (e) => {
