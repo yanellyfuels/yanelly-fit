@@ -1,0 +1,230 @@
+/* HA recovery homepage additions. Keeps the original Yanelly Fuels visual system intact. */
+
+.nav__links { gap: 18px; }
+.nav__links a:focus-visible,
+.btn:focus-visible,
+.arrow-link:focus-visible,
+.connect__links a:focus-visible,
+.footer a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.hero__actions--buttons { align-items: center; }
+.hero__note,
+.section-note {
+  max-width: 48rem;
+  margin-top: 20px;
+  color: var(--ink-2);
+  font-size: 0.98rem;
+}
+
+.btn--ghost {
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 5px 5px 0 var(--sage);
+}
+.btn--ghost:hover { color: var(--ink); box-shadow: 3px 3px 0 var(--sage); }
+
+.recognition__grid,
+.pillar-grid,
+.topic-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.recognition__grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+.recognition__grid p {
+  border: 2px solid var(--ink);
+  border-radius: var(--r);
+  background: var(--card);
+  padding: 22px;
+  color: var(--ink-2);
+  min-height: 132px;
+}
+.recognition__grid p::before {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin-bottom: 14px;
+  border-radius: 999px;
+  background: var(--blush);
+  box-shadow: 8px 0 0 var(--sage), 16px 0 0 var(--gold);
+}
+
+.story-layout .sec-head,
+.future-layout .sec-head { margin-bottom: 28px; }
+.story-copy,
+.copy-stack,
+.food-intro {
+  display: grid;
+  gap: 18px;
+  color: var(--ink-2);
+  font-size: 1.05rem;
+}
+.story-copy {
+  max-width: 850px;
+  border-left: 3px solid var(--blush);
+  padding-left: 28px;
+}
+.story-copy__lead,
+.copy-stack .about__lead,
+.food-intro .about__lead {
+  color: var(--ink);
+}
+
+.belief {
+  background: var(--green);
+  color: var(--paper);
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 86px 0;
+}
+.belief__inner {
+  display: grid;
+  grid-template-columns: 1fr 0.82fr;
+  gap: 44px;
+  align-items: center;
+}
+.belief h2 {
+  color: var(--paper);
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 10px 0 18px;
+}
+.belief p {
+  color: rgba(246, 237, 227, 0.82);
+  margin-bottom: 16px;
+  max-width: 52ch;
+}
+.quote-card {
+  position: relative;
+  border: 2px solid var(--paper);
+  border-radius: var(--r);
+  background: rgba(251, 245, 236, 0.1);
+  box-shadow: 12px 12px 0 var(--blush);
+  padding: 32px;
+  font-family: var(--display);
+  font-size: clamp(1.55rem, 3vw, 2.3rem);
+  line-height: 1.25;
+}
+
+.about--plain .about__body::first-letter { font-size: inherit; float: none; padding: 0; }
+.copy-stack { max-width: 720px; }
+
+.pillar-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+.pillar-card,
+.topic-card {
+  border: 2px solid var(--ink);
+  border-radius: var(--r);
+  background: var(--card);
+  padding: 24px;
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.pillar-card:hover,
+.topic-card:hover {
+  background: #fff9f0;
+  transform: translateY(-2px);
+}
+.pillar-card__label {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--berry);
+  margin-bottom: 14px;
+}
+.pillar-card h3,
+.topic-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+}
+.pillar-card p,
+.topic-card p,
+.food-intro p,
+.fitness-layout p,
+.future-layout p {
+  color: var(--ink-2);
+}
+
+.food-intro {
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: start;
+  margin-bottom: 34px;
+}
+.food-grid .recipe h3 { font-size: 1.42rem; }
+
+.fitness-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 42px;
+  align-items: start;
+}
+.entries--compact {
+  grid-template-columns: repeat(3, 1fr);
+}
+.entries--compact .entry:nth-child(3n) { border-right: none; }
+.entries--compact .entry:nth-last-child(-n+3) { border-bottom: none; }
+
+.topic-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+.topic-card {
+  min-height: 190px;
+}
+.topic-card h3 { font-size: 1.25rem; }
+.topic-card p { font-size: 0.96rem; }
+
+.disclaimer {
+  margin-top: 28px;
+  border-top: 2px solid var(--ink);
+  padding-top: 20px;
+}
+.disclaimer h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.disclaimer p {
+  color: var(--ink-2);
+  font-size: 0.95rem;
+}
+
+.footer__legal a {
+  color: rgba(246, 237, 227, 0.78);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.footer__legal a:hover { color: var(--blush); }
+
+@media (max-width: 980px) {
+  .nav__links { gap: 14px; }
+  .nav__links a { font-size: 0.68rem; }
+  .recognition__grid,
+  .pillar-grid,
+  .topic-grid { grid-template-columns: repeat(2, 1fr); }
+  .belief__inner,
+  .food-intro,
+  .fitness-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+  .entries--compact { grid-template-columns: 1fr; }
+  .entries--compact .entry { border-right: none; border-bottom: 2px solid var(--ink); }
+  .entries--compact .entry:last-child { border-bottom: none; }
+}
+
+@media (max-width: 600px) {
+  .hero__title { font-size: clamp(2.55rem, 15vw, 4rem); }
+  .hero__actions--buttons .btn { width: 100%; text-align: center; }
+  .recognition__grid,
+  .pillar-grid,
+  .topic-grid { grid-template-columns: 1fr; }
+  .recognition__grid p,
+  .topic-card { min-height: 0; }
+  .story-copy { padding-left: 20px; }
+  .quote-card { padding: 26px; box-shadow: 8px 8px 0 var(--blush); }
+  .connect__links a { font-size: 1.16rem; }
+}
