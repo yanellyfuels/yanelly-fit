@@ -5,9 +5,8 @@
      1. Mobile menu open/close
      2. Sticky nav shrinking once you scroll
      3. Scroll-reveal animations (things fade in as you reach them)
-     4. The email signup form (shows a thank-you for now)
+     4. The email signup form display state
      5. The current year in the footer
-   You usually won't need to edit this file.
    =========================================================================== */
 
 /* ---- 1. Mobile menu ------------------------------------------------------ */
@@ -50,7 +49,7 @@ if (revealEls.length && "IntersectionObserver" in window && !reduceMotion) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-in");
-          obs.unobserve(entry.target); // animate once, then stop watching
+          obs.unobserve(entry.target);
         }
       });
     },
@@ -58,44 +57,59 @@ if (revealEls.length && "IntersectionObserver" in window && !reduceMotion) {
   );
   revealEls.forEach((el) => observer.observe(el));
 
-  // Safety nets so nothing is ever stuck hidden:
   const revealInView = () =>
     revealEls.forEach((el) => {
       if (el.getBoundingClientRect().top < window.innerHeight * 0.95) el.classList.add("is-in");
     });
-  revealInView();                              // show whatever is on screen now
-  window.addEventListener("load", revealInView); // ...and again once fully loaded
-  setTimeout(showAll, 2500);                    // backstop: reveal everything
+  revealInView();
+  window.addEventListener("load", revealInView);
+  setTimeout(showAll, 2500);
 } else {
-  // No observer support, or the visitor prefers reduced motion → show it all
   showAll();
 }
 
-/* ---- 4. Email opt-in forms (the main call-to-action) --------------------
-   Every form with class "optin" captures a first name + email and then shows
-   the success state with the cheat-sheet download.
+/* ---- 4. Email opt-in forms -----------------------------------------------
+   Intended delivery: Kit sends "Could You Be Underfueling? A Reflection Guide
+   for Active Women" through an incentive or automated email.
 
-   To actually COLLECT the emails, wire this up to an email tool (Kit/ConvertKit
-   recommended) where the "TODO" is marked below —
-   e.g. POST the name + email to her Kit form endpoint, or swap each <form> for
-   Kit's embed snippet. Right now it delivers the download but doesn't store
-   the address anywhere.                                                        */
+   TODO: Replace KIT_FORM_ACTION_PLACEHOLDER in index.html with the public Kit
+   form action URL, or replace the form markup with Kit's official embed code.
+   Do not add private Kit API keys to frontend code.
+
+   Optional future file reference for your records only:
+   const HA_FREEBIE_URL = "";
+   The preferred delivery method is Kit email, not a public direct download.   */
+const KIT_PLACEHOLDER = "KIT_FORM_ACTION_PLACEHOLDER";
+
 document.querySelectorAll("form.optin").forEach((form) => {
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
 
-    // const data = { first_name: form.querySelector(".optin__name").value,
-    //                email: form.querySelector(".optin__email").value };
-    // TODO: send `data` to the email provider (Kit/ConvertKit) here.
+    const action = form.dataset.kitFormAction || form.getAttribute("action") || "";
+    const hasKitAction = action && action !== KIT_PLACEHOLDER;
+
+    if (hasKitAction) {
+      try {
+        await fetch(action, {
+          method: form.method || "POST",
+          mode: "no-cors",
+          body: new FormData(form)
+        });
+      } catch (error) {
+        console.warn("Kit form submission could not be confirmed.", error);
+      }
+    }
 
     const fields = form.querySelector(".optin__fields");
     const note = form.querySelector(".optin__note");
     const hook = form.querySelector(".optin__hook");
+    const subtitle = form.querySelector(".freebie__subtitle");
     const success = form.querySelector(".optin__success");
     if (fields) fields.hidden = true;
     if (note) note.hidden = true;
     if (hook) hook.hidden = true;
+    if (subtitle) subtitle.hidden = true;
     if (success) success.hidden = false;
   });
 });
